@@ -59,7 +59,7 @@ podTemplate(label: 'mypod', containers: [
                         usernameVariable: 'DOCKER_HUB_USER',
                         passwordVariable: 'DOCKER_HUB_PASSWORD']]) {
 
-               String pom = readMavenPom file: 'pom.xml'
+               pom = readMavenPom file: 'pom.xml'
 
 
                sh "docker login -u ${env.DOCKER_HUB_USER} -p ${env.DOCKER_HUB_PASSWORD}"
