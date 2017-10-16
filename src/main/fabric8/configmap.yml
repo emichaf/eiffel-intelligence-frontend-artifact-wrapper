@@ -1,0 +1,8 @@
+metadata:
+  #  Must match the 'spring.application.name' property of the application
+  name: ${project.artifactId}
+data:
+  application.properties: |
+    # spring application properties file
+    ei.backendServiceHost=hinode.seli.gic.ericsson.se
+    ei.backendServicePort=31057
