@@ -62,13 +62,13 @@ podTemplate(label: 'mypod', containers: [
 
                sh "docker login -u ${env.DOCKER_HUB_USER} -p ${env.DOCKER_HUB_PASSWORD}"
 
-               sh "docker build --no-cache=true -t ${env.DOCKER_HUB_USER}/${project.artifactId}:latest -f src/main/docker/Dockerfile src/main/docker/"
+               sh "docker build --no-cache=true -t ${env.DOCKER_HUB_USER}/${env.POM_ARTIFACTID}:latest -f src/main/docker/Dockerfile src/main/docker/"
 
-               sh "docker push ${env.DOCKER_HUB_USER}/${project.artifactId}:latest"
+               sh "docker push ${env.DOCKER_HUB_USER}/${env.POM_ARTIFACTID}:latest"
 
-               sh "docker build --no-cache=true -t ${env.DOCKER_HUB_USER}/${project.artifactId}:${GIT_SHORT_COMMIT} -f src/main/docker/Dockerfile src/main/docker/"
+               sh "docker build --no-cache=true -t ${env.DOCKER_HUB_USER}/${env.POM_ARTIFACTID}:${GIT_SHORT_COMMIT} -f src/main/docker/Dockerfile src/main/docker/"
 
-               sh "docker push ${env.DOCKER_HUB_USER}/${project.artifactId}:${GIT_SHORT_COMMIT}"
+               sh "docker push ${env.DOCKER_HUB_USER}/${env.POM_ARTIFACTID}:${GIT_SHORT_COMMIT}"
 
                sh "docker logout"
 
