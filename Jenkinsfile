@@ -11,7 +11,6 @@ podTemplate(label: 'mypod', containers: [
 
 
         String GIT_SHORT_COMMIT
-        String K8S_STAGE_NAMESPACE = "eiffelstage"
 
 
         stage ('GIT Checkout') {
@@ -87,8 +86,8 @@ podTemplate(label: 'mypod', containers: [
                     ]]){
 
 
-                         sh("kubectl --kubeconfig=$KUBECONFIG --namespace=${K8S_STAGE_NAMESPACE} create -f ./target/classes/META-INF/fabric8/kubernetes.yml")
-                         sh("kubectl --kubeconfig=$KUBECONFIG --namespace=${K8S_STAGE_NAMESPACE} get pods")
+                         sh("kubectl --kubeconfig=$KUBECONFIG create -f ./target/classes/META-INF/fabric8/kubernetes.yml")
+                         sh("kubectl --kubeconfig=$KUBECONFIG get pods")
 
                        }
                     }

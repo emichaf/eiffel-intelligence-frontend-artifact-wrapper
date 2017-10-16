@@ -108,7 +108,7 @@
                 <configuration>
                     <images>
                         <image>
-                            <name>emtrout/eiffel-intelligence-frontend-wrapper:%l</name>
+                            <name>emtrout/${project.artifactId}:%l</name>
                             <build>
                                 <dockerFileDir>${basedir}/src/main/docker</dockerFileDir>
                             </build>
