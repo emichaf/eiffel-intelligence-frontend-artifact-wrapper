@@ -15,7 +15,7 @@ spec:
       containers:
         - volumeMounts:
             - name: config
-              mountPath: /deployments/config
+              mountPath: "/deployments/config"
           imagePullPolicy : Always
       imagePullSecrets:
       - name: registrypullsecret
