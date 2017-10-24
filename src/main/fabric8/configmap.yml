@@ -5,4 +5,4 @@ data:
   application.properties: |
     # spring application properties file
     ei.backendServiceHost=hinode.seli.gic.ericsson.se
-    ei.backendServicePort=30999
+    ei.backendServicePort=31525
