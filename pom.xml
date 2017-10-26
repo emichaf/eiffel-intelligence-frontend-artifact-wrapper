@@ -28,8 +28,8 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.github.emichaf</groupId>
-            <artifactId>eiffel-intelligence-frontend-test</artifactId>
+            <groupId>com.github.ericsson</groupId>
+            <artifactId>eiffel-intelligence-frontend</artifactId>
             <version>master-SNAPSHOT</version>
             <!--<version>v1.0.0-alpha</version>-->
         </dependency>
