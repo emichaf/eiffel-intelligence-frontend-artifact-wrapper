@@ -85,8 +85,8 @@
                         <configuration>
                             <artifactItems>
                                 <artifactItem>
-                                    <groupId>com.github.emichaf</groupId>
-                                    <artifactId>eiffel-intelligence-frontend-test</artifactId>
+                                    <groupId>com.github.ericsson</groupId>
+                                    <artifactId>eiffel-intelligence-frontend</artifactId>
                                     <overWrite>true</overWrite>
                                     <outputDirectory>${basedir}/src/main/docker/maven</outputDirectory>
                                     <!--<destFileName>ei_fat.jar</destFileName>-->
