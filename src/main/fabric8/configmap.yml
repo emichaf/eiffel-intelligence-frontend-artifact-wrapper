@@ -4,5 +4,5 @@ metadata:
 data:
   application.properties: |
     # spring application properties file
-    ei.backendServiceHost=curiosity.seli.gic.ericsson.se
-    ei.backendServicePort=32108
+    ei.backendServiceHost=hinode.seli.gic.ericsson.se
+    ei.backendServicePort=31135
