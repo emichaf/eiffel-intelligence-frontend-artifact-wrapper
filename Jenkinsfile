@@ -13,11 +13,12 @@ podTemplate(label: 'mypod', containers: [
 
         String GIT_SHORT_COMMIT
 
-        def exists = fileExists 'foo'
-        if (!exists){
-                new File('foo').mkdir()
-            }
+
             stage ('GIT Checkout EI FrontEnd SC') {
+                 def exists = fileExists 'foo'
+                        if (!exists){
+                                new File('foo').mkdir()
+                            }
                 dir ('foo') {
                                 git branch: "master", url: 'https://github.com/Ericsson/eiffel-intelligence-frontend.git'
                             }
