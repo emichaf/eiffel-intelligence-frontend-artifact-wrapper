@@ -78,12 +78,13 @@ podTemplate(label: 'mypod', containers: [
             dir ('wrapper') {
                sh "pwd"
 
+               sh "ls"
 
                sh "mvn clean package -DskipTests"
 
                sh "ls ../sourcecode/target/"
 
-               sh "cp ../sourcecode/target/ei-frontend-0.0.1-SNAPSHOT.jar /src/main/docker/maven"
+               sh "cp ../sourcecode/target/ei-frontend-0.0.1-SNAPSHOT.jar src/main/docker/maven"
 
                sh "ls /src/main/docker/maven"
              }
