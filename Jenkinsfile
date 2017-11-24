@@ -44,6 +44,9 @@ podTemplate(label: 'mypod', containers: [
                      sh "ls target"
                      sh "cd target"
                      sh "ls"
+
+                     //ei-frontend-0.0.1-SNAPSHOT.jar
+
                             }
 
 
@@ -79,6 +82,10 @@ podTemplate(label: 'mypod', containers: [
                sh "mvn clean package -DskipTests"
 
                sh "ls ../sourcecode/target/"
+
+               sh "cp ../sourcecode/target/ei-frontend-0.0.1-SNAPSHOT.jar /src/main/docker/maven
+
+               sh "ls /src/main/docker/maven"
              }
 
              }
