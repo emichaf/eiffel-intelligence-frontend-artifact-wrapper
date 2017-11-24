@@ -52,11 +52,11 @@ podTemplate(label: 'mypod', containers: [
 
         stage ('GIT Checkout EI Wrapper') {
 
-
+            dir ('wrapper') {
             git branch: "master", url: 'https://github.com/emichaf/eiffel-intelligence-frontend-artifact-wrapper.git'
 
             GIT_SHORT_COMMIT = sh(returnStdout: true, script: "git log -n 1 --pretty=format:'%h'").trim()
-
+            }
 
         }
 
@@ -67,10 +67,12 @@ podTemplate(label: 'mypod', containers: [
                         usernameVariable: 'DOCKER_HUB_USER',
                         passwordVariable: 'DOCKER_HUB_PASSWORD']]) {
 
+            dir ('wrapper') {
                sh "pwd"
 
 
              //sh "mvn clean package -DskipTests"
+             }
 
              }
 
