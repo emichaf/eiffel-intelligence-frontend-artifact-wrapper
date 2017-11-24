@@ -33,8 +33,10 @@ podTemplate(label: 'mypod', containers: [
                                 usernameVariable: 'DOCKER_HUB_USER',
                                 passwordVariable: 'DOCKER_HUB_PASSWORD']]) {
 
-                     sh "cd foo"
+                     dir ('foo') {
+
                      sh "pwd"
+                            }
 
                      //sh "mvn clean package -DskipTests"
 
