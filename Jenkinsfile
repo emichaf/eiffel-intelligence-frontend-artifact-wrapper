@@ -38,7 +38,12 @@ podTemplate(label: 'mypod', containers: [
                      sh "pwd"
 
                      sh "mvn clean package -DskipTests"
-                     sh "ls /target"
+
+                     sh "ls"
+                     sh "pwd"
+                     sh "ls target"
+                     sh "cd target"
+                     sh "ls"
                             }
 
 
