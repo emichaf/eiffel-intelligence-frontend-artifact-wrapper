@@ -16,7 +16,7 @@ podTemplate(label: 'mypod', containers: [
 
             stage ('GIT Checkout EI FrontEnd SC') {
 
-                dir ('foo') {
+                dir ('sourcecode') {
                                 git branch: "master", url: 'https://github.com/Ericsson/eiffel-intelligence-frontend.git'
                             }
 
@@ -33,12 +33,15 @@ podTemplate(label: 'mypod', containers: [
                                 usernameVariable: 'DOCKER_HUB_USER',
                                 passwordVariable: 'DOCKER_HUB_PASSWORD']]) {
 
-                     dir ('foo') {
-
+                     dir ('sourcecode') {
+                     sh "ls"
                      sh "pwd"
+
+                     sh "mvn clean package -DskipTests"
+
                             }
 
-                     //sh "mvn clean package -DskipTests"
+
 
                      }
 
@@ -48,6 +51,8 @@ podTemplate(label: 'mypod', containers: [
 
 
         stage ('GIT Checkout EI Wrapper') {
+
+
             git branch: "master", url: 'https://github.com/emichaf/eiffel-intelligence-frontend-artifact-wrapper.git'
 
             GIT_SHORT_COMMIT = sh(returnStdout: true, script: "git log -n 1 --pretty=format:'%h'").trim()
@@ -63,8 +68,7 @@ podTemplate(label: 'mypod', containers: [
                         passwordVariable: 'DOCKER_HUB_PASSWORD']]) {
 
                sh "pwd"
-               sh "cd foo"
-               sh "pwd"
+
 
              //sh "mvn clean package -DskipTests"
 
