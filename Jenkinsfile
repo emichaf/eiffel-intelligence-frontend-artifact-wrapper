@@ -26,7 +26,6 @@ podTemplate(label: 'mypod', containers: [
                                 passwordVariable: 'DOCKER_HUB_PASSWORD']]) {
 
                      sh "pwd"
-                     sh "ls"
 
                      //sh "mvn clean package -DskipTests"
 
@@ -53,7 +52,7 @@ podTemplate(label: 'mypod', containers: [
                         passwordVariable: 'DOCKER_HUB_PASSWORD']]) {
 
                sh "pwd"
-               sh "ls"
+
              //sh "mvn clean package -DskipTests"
 
              }
