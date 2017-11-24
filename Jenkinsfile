@@ -38,7 +38,7 @@ podTemplate(label: 'mypod', containers: [
                      sh "pwd"
 
                      sh "mvn clean package -DskipTests"
-
+                     sh "ls /target"
                             }
 
 
@@ -71,7 +71,9 @@ podTemplate(label: 'mypod', containers: [
                sh "pwd"
 
 
-             //sh "mvn clean package -DskipTests"
+               sh "mvn clean package -DskipTests"
+
+               sh "ls ../sourcecode/target/"
              }
 
              }
