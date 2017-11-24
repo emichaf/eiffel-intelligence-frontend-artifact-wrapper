@@ -12,8 +12,32 @@ podTemplate(label: 'mypod', containers: [
 
         String GIT_SHORT_COMMIT
 
+        stage ('GIT Checkout EI FrontEnd SC') {
+            git branch: "master", url: 'https://github.com/Ericsson/eiffel-intelligence-frontend.git'
 
-        stage ('GIT Checkout') {
+
+        }
+
+        stage('Maven Build EI FrontEnd SC') {
+                    container('maven') {
+                    withCredentials([[$class: 'UsernamePasswordMultiBinding',
+                                credentialsId: 'e7de4146-4a59-4406-916e-d10506cfaeb8',
+                                usernameVariable: 'DOCKER_HUB_USER',
+                                passwordVariable: 'DOCKER_HUB_PASSWORD']]) {
+
+                     sh "pwd"
+                     sh "ls"
+
+                     //sh "mvn clean package -DskipTests"
+
+                     }
+
+                    }
+                }
+
+
+
+        stage ('GIT Checkout EI Wrapper') {
             git branch: "master", url: 'https://github.com/emichaf/eiffel-intelligence-frontend-artifact-wrapper.git'
 
             GIT_SHORT_COMMIT = sh(returnStdout: true, script: "git log -n 1 --pretty=format:'%h'").trim()
@@ -28,8 +52,9 @@ podTemplate(label: 'mypod', containers: [
                         usernameVariable: 'DOCKER_HUB_USER',
                         passwordVariable: 'DOCKER_HUB_PASSWORD']]) {
 
-
-             sh "mvn clean package -DskipTests"
+               sh "pwd"
+               sh "ls"
+             //sh "mvn clean package -DskipTests"
 
              }
 
