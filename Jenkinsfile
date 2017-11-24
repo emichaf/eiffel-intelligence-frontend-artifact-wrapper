@@ -10,13 +10,23 @@ podTemplate(label: 'mypod', containers: [
     node('mypod') {
 
 
+
         String GIT_SHORT_COMMIT
 
-        stage ('GIT Checkout EI FrontEnd SC') {
-            git branch: "master", url: 'https://github.com/Ericsson/eiffel-intelligence-frontend.git'
+        def exists = fileExists 'foo'
+        if (!exists){
+                new File('foo').mkdir()
+            }
+            stage ('GIT Checkout EI FrontEnd SC') {
+                dir ('foo') {
+                                git branch: "master", url: 'https://github.com/Ericsson/eiffel-intelligence-frontend.git'
+                            }
 
 
-        }
+            }
+
+
+
 
         stage('Maven Build EI FrontEnd SC') {
                     container('maven') {
