@@ -10,13 +10,61 @@ podTemplate(label: 'mypod', containers: [
     node('mypod') {
 
 
+
         String GIT_SHORT_COMMIT
 
-        stage ('GIT Checkout') {
+
+            stage ('GIT Checkout EI FrontEnd SC') {
+
+                dir ('sourcecode') {
+                                git branch: "master", url: 'https://github.com/Ericsson/eiffel-intelligence-frontend.git'
+                            }
+
+
+            }
+
+
+
+
+        stage('Maven Build EI FrontEnd SC') {
+                    container('maven') {
+                    withCredentials([[$class: 'UsernamePasswordMultiBinding',
+                                credentialsId: 'e7de4146-4a59-4406-916e-d10506cfaeb8',
+                                usernameVariable: 'DOCKER_HUB_USER',
+                                passwordVariable: 'DOCKER_HUB_PASSWORD']]) {
+
+                     dir ('sourcecode') {
+                     sh "ls"
+                     sh "pwd"
+
+                     sh "mvn clean package -DskipTests"
+
+                     sh "ls"
+                     sh "pwd"
+                     sh "ls target"
+                     sh "cd target"
+                     sh "ls"
+
+                     //ei-frontend-0.0.1-SNAPSHOT.jar
+
+                            }
+
+
+
+                     }
+
+                    }
+                }
+
+
+
+        stage ('GIT Checkout EI Wrapper') {
+
+            dir ('wrapper') {
             git branch: "master", url: 'https://github.com/emichaf/eiffel-intelligence-frontend-artifact-wrapper.git'
 
             GIT_SHORT_COMMIT = sh(returnStdout: true, script: "git log -n 1 --pretty=format:'%h'").trim()
-
+            }
 
         }
 
@@ -27,8 +75,19 @@ podTemplate(label: 'mypod', containers: [
                         usernameVariable: 'DOCKER_HUB_USER',
                         passwordVariable: 'DOCKER_HUB_PASSWORD']]) {
 
+            dir ('wrapper') {
+               sh "pwd"
 
-             sh "mvn clean package -DskipTests"
+               sh "ls"
+
+               sh "mvn clean package -DskipTests"
+
+               sh "ls ../sourcecode/target/"
+
+               sh "cp ../sourcecode/target/ei-frontend-0.0.1-SNAPSHOT.jar src/main/docker/maven"
+
+               sh "ls src/main/docker/maven"
+             }
 
              }
 
@@ -58,8 +117,8 @@ podTemplate(label: 'mypod', containers: [
                         usernameVariable: 'DOCKER_HUB_USER',
                         passwordVariable: 'DOCKER_HUB_PASSWORD']]) {
 
-
                pom = readMavenPom file: 'pom.xml'
+
 
                sh "docker login -u ${env.DOCKER_HUB_USER} -p ${env.DOCKER_HUB_PASSWORD}"
 
