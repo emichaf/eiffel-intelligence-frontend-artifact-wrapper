@@ -34,9 +34,9 @@ podTemplate(label: 'mypod', containers: [
 
                      dir ('sourcecode') {
 
-                     def travis_datas = readYaml file: .travis.yml
+                     def travis_datas = readYaml file: ".travis.yml"
 
-                     sh "travis_datas.script"
+                     sh "${travis_datas.script}"
 
 
                      sh "ls"
