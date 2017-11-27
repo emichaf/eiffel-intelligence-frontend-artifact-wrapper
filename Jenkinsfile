@@ -38,7 +38,7 @@ podTemplate(label: 'mypod', containers: [
 
                      def frick_datas = "mvn clean package -DskipTests"
 
-                     sh "$frick_datas"
+                     sh "$travis_datas"
 
 
                      sh "ls"
