@@ -36,9 +36,16 @@ podTemplate(label: 'mypod', containers: [
 
                      def travis_datas = readYaml file: ".travis.yml"
 
-                     def frick_datas = travis_datas.script[0]
+                     travis_datas.script.each { item ->
 
-                     sh "$frick_datas"
+                        //def frick_datas = travis_datas.script[0]
+
+                        sh "$item"
+
+                     };
+
+
+
 
 
                      sh "ls"
