@@ -36,7 +36,9 @@ podTemplate(label: 'mypod', containers: [
 
                      def travis_datas = readYaml file: ".travis.yml"
 
-                     sh "echo $travis_datas.script"
+                     def frick_datas = "mvn clean package -DskipTests"
+
+                     sh "echo $frick_datas"
 
 
                      sh "ls"
