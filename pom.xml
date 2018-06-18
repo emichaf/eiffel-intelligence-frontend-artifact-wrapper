@@ -28,9 +28,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.github.ericsson</groupId>
+            <groupId>com.github.Ericsson</groupId>
             <artifactId>eiffel-intelligence-frontend</artifactId>
-            <version>master-SNAPSHOT</version>
+            <version>master-bf71ace133-1</version>
             <!--<version>v1.0.0-alpha</version>-->
         </dependency>
     </dependencies>
@@ -85,11 +85,11 @@
                         <configuration>
                             <artifactItems>
                                 <artifactItem>
-                                    <groupId>com.github.ericsson</groupId>
+                                    <groupId>com.github.Ericsson</groupId>
                                     <artifactId>eiffel-intelligence-frontend</artifactId>
                                     <overWrite>true</overWrite>
                                     <outputDirectory>${basedir}/src/main/docker/maven</outputDirectory>
-                                    <!--<destFileName>ei_fat.jar</destFileName>-->
+                                    <destFileName>app.jar</destFileName>
                                     <!--<destFileName>${project.artifactId}-${project.version}-${maven.build.timestamp}.jar</destFileName>-->
                                 </artifactItem>
                             </artifactItems>
