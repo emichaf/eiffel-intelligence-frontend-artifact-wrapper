@@ -12,8 +12,10 @@ data:
     ei.frontendServicePort=80
     ei.frontendContextPath=
     ei.useSecureHttpFrontend=false
-    ei.backendServerHost=eiffel-intelligence-artifact-wrapper.iris.seli.gic.ericsson.se
-    ei.backendServerPort=80
+    #ei.backendServerHost=eiffel-intelligence-artifact-wrapper.iris.seli.gic.ericsson.se
+    #ei.backendServerPort=80
+    ei.backendServerHost=eiffel-intelligence-artifact-wrapper
+    ei.backendServerPort=8090
     ei.backendContextPath=
     ei.useSecureHttpBackend=false
     ei.backendInstancesPath=
