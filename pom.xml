@@ -3,7 +3,8 @@
 
     <groupId>com.ericsson.ei</groupId>
     <artifactId>eiffel-intelligence-frontend-artifact-wrapper</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>master-SNAPSHOT</version>
+    <packaging>jar</packaging>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -14,6 +15,11 @@
     </properties>
 
     <repositories>
+        <repository>
+        <id>jboss-public-repository-group</id>
+        <name>JBoss Public Maven Repository Group</name>
+        <url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
+    </repository>
         <repository>
             <id>jitpack.io</id>
             <url>https://jitpack.io</url>
@@ -30,13 +36,14 @@
         <dependency>
             <groupId>com.github.Ericsson</groupId>
             <artifactId>eiffel-intelligence-frontend</artifactId>
-            <version>master-bf71ace133-1</version>
-            <!--<version>v1.0.0-alpha</version>-->
+            <version>master-SNAPSHOT</version>
+            <type>war</type>
         </dependency>
     </dependencies>
 
     <build>
         <plugins>
+
             <plugin>
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>3.0.2</version>
@@ -48,7 +55,6 @@
                     </execution>
                 </executions>
             </plugin>
-
 
             <plugin>
                 <artifactId>maven-clean-plugin</artifactId>
@@ -89,7 +95,8 @@
                                     <artifactId>eiffel-intelligence-frontend</artifactId>
                                     <overWrite>true</overWrite>
                                     <outputDirectory>${basedir}/src/main/docker/maven</outputDirectory>
-                                    <destFileName>app.jar</destFileName>
+                                    <type>war</type>
+                                    <destFileName>app.war</destFileName>
                                     <!--<destFileName>${project.artifactId}-${project.version}-${maven.build.timestamp}.jar</destFileName>-->
                                 </artifactItem>
                             </artifactItems>

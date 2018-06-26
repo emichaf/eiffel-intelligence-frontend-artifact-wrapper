@@ -4,5 +4,8 @@ metadata:
 data:
   application.properties: |
     # spring application properties file
-    ei.frontendServiceHost=hinode.seli.gic.ericsson.se
-    ei.frontendServicePort=31616
+    spring.application.name=eiffel-intelligence-frontend-artifact
+    ei.frontendServiceHost=${project.artifactId}.iris.seli.gic.ericsson.se
+    ei.frontendServicePort=8080
+    ei.backendServerHost=eiffel-intelligence-artifact-wrapper
+    ei.backendServerPort=8090
