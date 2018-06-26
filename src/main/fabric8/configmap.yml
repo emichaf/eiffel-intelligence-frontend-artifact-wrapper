@@ -4,8 +4,16 @@ metadata:
 data:
   application.properties: |
     # spring application properties file
-    spring.application.name=eiffel-intelligence-frontend-artifact
+    spring.application.name=${project.artifactId}
+    logging.level.root=INFO
+    logging.level.org.springframework.web=DEBUG
+    logging.level.com.ericsson.ei=DEBUG
     ei.frontendServiceHost=${project.artifactId}.iris.seli.gic.ericsson.se
-    ei.frontendServicePort=8080
-    ei.backendServerHost=eiffel-intelligence-artifact-wrapper
-    ei.backendServerPort=8090
+    ei.frontendServicePort=80
+    ei.frontendContextPath=
+    ei.useSecureHttpFrontend=false
+    ei.backendServerHost=eiffel-intelligence-artifact-wrapper.iris.seli.gic.ericsson.se
+    ei.backendServerPort=80
+    ei.backendContextPath=
+    ei.useSecureHttpBackend=false
+    ei.backendInstancesPath=
