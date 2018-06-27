@@ -4,7 +4,7 @@ metadata:
     name: ${project.artifactId}
 spec:
   rules:
-  - host: ${project.artifactId}.iris.seli.gic.ericsson.se
+  - host: ${project.artifactId}.${deployment.host.ingress}
     http:
       paths:
       - backend:
