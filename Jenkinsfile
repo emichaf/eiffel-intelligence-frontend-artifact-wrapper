@@ -1,6 +1,8 @@
 #!/usr/bin/env groovy
 
-@Library(['github.com/emichaf/myshared@master']) _
+//@Library(['github.com/emichaf/myshared@master']) _
+
+@Library('myshared@master') _
 
 Java_K8S_CI_Pipeline_Travisfile_Test{
      ARM_URL = "https://eiffel.lmera.ericsson.se/nexus/content/repositories/releases/emichaftest/com/ericsson/eiffel/eiffel-intelligence-frontend"
