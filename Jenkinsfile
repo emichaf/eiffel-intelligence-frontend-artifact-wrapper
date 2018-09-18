@@ -3,7 +3,7 @@
 @Library(['github.com/emichaf/myshared@master']) _
 
 //Java_CI_Pipeline_Travisfile_Test2 {
-Java_K8S_CI_Pipeline_Travisfile_Test.groovy {
+Java_K8S_CI_Pipeline_Travisfile_Test {
 
      ARM_URL = "https://eiffel.lmera.ericsson.se/nexus/content/repositories/releases/emichaftest/com/ericsson/eiffel/eiffel-intelligence-frontend"
      DOCKER_HOST = "tcp://docker104-eiffel999.lmera.ericsson.se:4243"
