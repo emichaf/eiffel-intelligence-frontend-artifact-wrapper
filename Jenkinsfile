@@ -1,6 +1,7 @@
 #!/usr/bin/env groovy
 
-@Library(['github.com/emichaf/myshared@master']) _
+//@Library(['github.com/emichaf/myshared@master']) _
+@Library('myshared@master') _
 
 //Java_K8S_CI_Pipeline_Travisfile_Test{
 Java_CI_Pipeline_Travisfile_Test2{
