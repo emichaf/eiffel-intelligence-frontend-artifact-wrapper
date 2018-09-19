@@ -6,7 +6,16 @@
 //@Library('myshared@master') _
 
 //gerrit
-@Library('myshared_gerrit@master') _
+//@Library('myshared_gerrit@master') _
+
+
+library identifier: 'temp-lib@master', retriever: modernSCM(
+[$class: 'GitSCMSource',
+    remote: 'https://gerrit.ericsson.se/#/admin/projects/eiffel/eiffel2/eiffel-ci-cd-cr/eiffel-pipeline-shared',
+    excludes: '',
+    includes: '*',
+    rawRefSpecs: '+refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/remotes/origin/tags/* +refs/changes/*:refs/remotes/changes/*'
+])
 
 Java_K8S_CI_Pipeline_Travisfile_Test{
      ARM_URL = "https://eiffel.lmera.ericsson.se/nexus/content/repositories/releases/emichaftest/com/ericsson/eiffel/eiffel-intelligence-frontend"
