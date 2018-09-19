@@ -6,7 +6,7 @@
 //@Library('myshared@master') _
 
 //gerrit
-//@Library('myshared_gerrit@master') _
+@Library('myshared@master') _
 
 
 library identifier: 'temp-lib@master', retriever: modernSCM(
