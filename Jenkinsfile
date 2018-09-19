@@ -11,7 +11,7 @@
 
 library identifier: 'temp-lib@master', retriever: modernSCM(
 [$class: 'GitSCMSource',
-    remote: 'https://gerrit.ericsson.se/#/admin/projects/eiffel/eiffel2/eiffel-ci-cd-cr/eiffel-pipeline-shared',
+    remote: 'https://emichaf@gerrit.ericsson.se/a/eiffel/eiffel2/eiffel-ci-cd-cr/eiffel-pipeline-shared',
     excludes: '',
     includes: '*',
     rawRefSpecs: '+refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/remotes/origin/tags/* +refs/changes/*:refs/remotes/changes/*'
